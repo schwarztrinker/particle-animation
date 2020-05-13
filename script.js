@@ -86,7 +86,7 @@ function remove(){
 
 function update(){
   //CLEAR CANVAS
-  //context.clearRect(0, 0, canvas.width, canvas.height);
+  context.clearRect(0, 0, canvas.width, canvas.height);
 
   for (let i = 0; i < particleSystem.length; i += 1){ 
     const p = particleSystem[i];
