@@ -4,7 +4,11 @@ canvas.height = window.innerHeight;
 const context = canvas.getContext('2d');
 
 var particleSystem = [];
+
+// VARS
 var startMult = 0; 
+var speed = 4; 
+var count = 200;
 
 
 // BUTTTON ASSIIGNMENTS
@@ -46,8 +50,8 @@ function newParticle(){
     x: canvas.width / 2 + ((Math.random()- 0.5)*startMult),
     y: canvas.height / 2 + ((Math.random()- 0.5)*startMult),
     // 
-    xvel: (Math.random()- 0.5) * 4,
-    yvel: (Math.random()- 0.5) * 4,
+    xvel: (Math.random()- 0.5) * speed,
+    yvel: (Math.random()- 0.5) * speed,
     color: `rgba(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)})`,
     size: 6,
   };
@@ -64,31 +68,25 @@ function emit(){
 }
 
 function remove(){
-  var bool = false;
-  // DELETE PARTICLE BY LEAVING CANVAS
-  if(bool){
-    for (let i = 0; i < particleSystem.length; i += 1){
-      if(particleSystem[i].x > canvas.width || particleSystem[i].x < 0 || particleSystem[i].y > canvas.height || particleSystem[i].y <0){
-        particleSystem.splice(i,1)
-        console.log("Deleted particle nr.: " + i )
-      }
+  // DELETE PARTICLE BY LEAVING CANVAS 
+  for (let i = 0; i < particleSystem.length; i += 1){
+    if(particleSystem[i].x > canvas.width || particleSystem[i].x < 0 || particleSystem[i].y > canvas.height || particleSystem[i].y <0){
+      particleSystem.splice(i,1)
+      console.log("Deleted particle nr.: " + i )
     }
   }
-  
-  // DELETE PARTICLE BY REACHING LIVETIME
-  if(!bool){
-    if(particleSystem.length > 200){
-      particleSystem.shift();
-    }
+// DELETE PARTICLE BY REACHING LIVETIME
+  if(particleSystem.length > count){
+    particleSystem.shift();
   }
-
 }
 
 function update(){
   //CLEAR CANVAS
   context.clearRect(0, 0, canvas.width, canvas.height);
 
-  for (let i = 0; i < particleSystem.length; i += 1){ 
+    // SKIP LAST PARTICLE 
+  for (let i = 0; i < particleSystem.length-1; i += 1){ 
     const p = particleSystem[i];
     // CALCULATE NEW LOCATION
     p.x += p.xvel;
