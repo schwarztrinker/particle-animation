@@ -85,7 +85,7 @@ function remove(){
     }
   }
 // DELETE PARTICLE BY REACHING LIVETIME
-  if(particleSystem.length > count){
+  while(particleSystem.length > count){
     particleSystem.shift();
   }
 }
