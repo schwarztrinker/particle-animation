@@ -7,10 +7,14 @@ body {
   overflow: hidden;
 }
 
-p{
+a{
   color: #FFF;
 }
 
 body, #canvas {
   background: #101010;
+}
+
+.options {
+  white-space: nowrap;
 }

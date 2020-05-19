@@ -6,11 +6,16 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <button type="button" id="button" value="Reset" onclick="click();">Reset</button>
-    <div class="slidecontainer">
-      
+    <div class="options">
+      <button type="button" id="button" value="Reset" onclick="click();">Reset</button>
+      <a>Spawn-Location: </a>
       <input type="range" min="0" max="1000" value="0" class="slider" id="myRange">
-      <p id="sliderValue"></p>
+      <a id="sliderValue"></a>
+      <a>    |   </a>
+      <a>Maximal particles: </a>
+      <input type="range" min="0" max="1000" value="200" class="slider" id="count">
+      <a id="sliderValue2"></a>
+        
     </div>
     <canvas id="canvas" width="100%" height="90%"></canvas>
     <script src="script.js"></script>

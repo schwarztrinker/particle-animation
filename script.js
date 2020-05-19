@@ -17,9 +17,20 @@ var slider = document.getElementById("myRange");
 var output = document.getElementById("sliderValue");
 output.innerHTML = slider.value; // Display the default slider value
 // Update the current slider value (each time you drag the slider handle)
+var slider2 = document.getElementById("count");
+var output2 = document.getElementById("sliderValue2");
+output2.innerHTML = slider2.value; 
+
+
 slider.oninput = function() {
   startMult = this.value;
   output.innerHTML = this.value;
+}
+
+
+slider2.oninput = function() {
+  count = this.value;
+  output2.innerHTML = this.value;
 }
 
 /// MAIN FUNCTION
@@ -53,9 +64,7 @@ function newParticle(){
     xvel: (Math.random()- 0.5) * speed,
     yvel: (Math.random()- 0.5) * speed,
     color: `rgba(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)})`,
-    size: 6,
-  };
-
+    size: 6 };
   return particle; 
 }
 
