@@ -64,7 +64,7 @@ function newParticle(){
     xvel: (Math.random()- 0.5) * speed,
     yvel: (Math.random()- 0.5) * speed,
     color: `rgba(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)})`,
-    size: 6 };
+    size: 6}; // Math.random() * 10 + 2
   return particle; 
 }
 
